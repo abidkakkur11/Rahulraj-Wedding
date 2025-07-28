@@ -41,3 +41,35 @@ document.addEventListener('DOMContentLoaded', function() {
 //         background.style.transform = `translateY(${scrolled * 0.5}px)`;
 //     }
 // });
+
+// Confirm Presence Modal & Audio
+document.addEventListener('DOMContentLoaded', function() {
+    // Modal logic
+    const confirmBtn = document.getElementById('confirmBtn');
+    const confirmModal = document.getElementById('confirmModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const kalyanamAudio = document.getElementById('kalyanamAudio');
+
+    if (confirmBtn && confirmModal && closeModalBtn && kalyanamAudio) {
+        confirmBtn.addEventListener('click', function() {
+            confirmModal.style.display = 'flex';
+            kalyanamAudio.currentTime = 0;
+            kalyanamAudio.play();
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            confirmModal.style.display = 'none';
+            kalyanamAudio.pause();
+            kalyanamAudio.currentTime = 0;
+        });
+
+        // Optional: Close modal on overlay click
+        confirmModal.addEventListener('click', function(e) {
+            if (e.target === confirmModal) {
+                confirmModal.style.display = 'none';
+                kalyanamAudio.pause();
+                kalyanamAudio.currentTime = 0;
+            }
+        });
+    }
+});
