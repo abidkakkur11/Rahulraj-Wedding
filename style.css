@@ -27,6 +27,15 @@ body {
     pointer-events: none;
 }
 
+@supports (-webkit-touch-callout: none) {
+  .background {
+    background-attachment: scroll !important;
+  }
+  body {
+    background-attachment: scroll !important;
+  }
+}
+
 .overlay {
     position: fixed;
     top: 0;
